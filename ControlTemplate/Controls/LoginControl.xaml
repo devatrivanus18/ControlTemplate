@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="conLogin"
+             x:Class="ControlTemplate.Controls.LoginControl">
+    <Grid BindingContext="{x:Reference conLogin}">
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+            />
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Welcome!" FontSize="28" TextColor="Gray" HorizontalTextAlignment="Center"/>
+                <Label Text="Login to your account!" FontSize="18" TextColor="Gray" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                    <Image Source="dotnet_bot.png"
+                   HeightRequest="50"
+                   HorizontalOptions="Center"/>
+                </Frame>
+                <Frame HasShadow="True" BorderColor="White" HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20, 0, 0,0" VerticalOptions="Center" Placeholder="Username" TextColor="{Binding TextColor}" Text="{Binding Username}"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                    <Image Source="dotnet_bot.png"
+                   HeightRequest="50"
+                   HorizontalOptions="Center"/>
+                </Frame>
+                <Frame HasShadow="True" BorderColor="White" HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20, 0, 0,0" VerticalOptions="Center" Placeholder="Password" TextColor="{Binding TextColor}" Text="{Binding Password}"/>
+                </Frame>
+            </StackLayout>
+            <Button Text="Login" HorizontalOptions="Center" WidthRequest="100" CornerRadius="20" Command="{Binding Command}"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

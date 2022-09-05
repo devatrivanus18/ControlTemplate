@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<control:ModalControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ControlTemplate.Views.PopupPage"
+             xmlns:control="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
+             Title="PopupPage">
+    <control:ModalControl.ModalContent>
+        <StackLayout Spacing="15">
+            <Label Text="Pilih Opsi" FontSize="16" FontAttributes="Bold"   TextColor="Black"/>
+            <Label Text="Opsi 1" />
+            <BoxView BackgroundColor="Black" HeightRequest="1" />
+            <Label Text="Opsi 2" />
+            <BoxView BackgroundColor="Black" HeightRequest="1" />
+        </StackLayout>
+    </control:ModalControl.ModalContent>
+</control:ModalControl>

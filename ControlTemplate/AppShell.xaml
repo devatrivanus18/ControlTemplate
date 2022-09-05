@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ControlTemplate.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:ControlTemplate.Views"
+    xmlns:local="clr-namespace:ControlTemplate">
+
+    <ShellContent FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+        
+    <ShellContent
+        Title="Dashboard"
+        ContentTemplate="{DataTemplate views:DashboardPage}"
+        Route="DashboardPage" />
+    <ShellContent
+        Title="Test"
+        ContentTemplate="{DataTemplate views:TestPage}"
+        Route="TestPage" />
+    
+    <ShellContent
+        Title="Data Sensor"
+        ContentTemplate="{DataTemplate views:DataPage}"
+        Route="DataPage" />
+    <ShellContent
+        Title="Custom Tabel"
+        ContentTemplate="{DataTemplate views:CustomTabelPage}"
+        Route="CustomTabelPage" />
+</Shell>

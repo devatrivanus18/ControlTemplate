@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ControlTemplate.Views.CustomTabelPage"
+             xmlns:vm="clr-namespace:ControlTemplate.ViewModels"
+             xmlns:control="clr-namespace:ControlTemplate.Controls"
+             xmlns:table="clr-namespace:ControlTemplate.Controls.TabelControl"
+             Title="Custom Tabel">
+    <ContentPage.BindingContext>
+        <vm:vmDataSensor />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding DataSensors}"
+                      HasUnevenRows="True"
+                       Margin="0,10,0,0">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <table:HeaderTabelControl Text="Nama"/>
+                        <table:HeaderTabelControl Text="Kelembaban"/>
+                        <table:HeaderTabelControl Text="Tanggal"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <table:ContentTabel Text="{Binding Suhu}"/>
+                                    <table:ContentTabel Text="{Binding Kelembaban}"/>
+                                    <table:ContentTabel Text="{Binding Tanggal}"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
