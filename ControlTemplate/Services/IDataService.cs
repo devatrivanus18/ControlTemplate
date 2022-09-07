@@ -11,8 +11,10 @@ namespace ControlTemplate.Services
     public interface IDataService
     {
         tblPerangkat Perangkat { get; set; }
-        ObservableCollection<tblDataSensor> DataSensor { get; set; }
+        ObservableCollection<tblDataCustomer> DataCustomers { get; set; }
+        ObservableCollection<tblDataTransaksi> DataTransaksi { get; set; }
 
+        Task<ObservableCollection<tblDataCustomer>> GetData();
         Task OnLogin(string username);
     }
 }

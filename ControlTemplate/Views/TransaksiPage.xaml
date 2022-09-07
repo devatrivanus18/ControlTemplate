@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ControlTemplate.ViewModels"
+             xmlns:table="clr-namespace:ControlTemplate.Controls.TabelControl"
+             x:Class="ControlTemplate.Views.TransaksiPage"
+             Title="Transaksi">
+    <ContentPage.BindingContext>
+        <vm:vmTransaksi />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Tambah" Command="{Binding GetModalCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding DataTransaksi}"
+                       Margin="0,10,0,0">
+                <CollectionView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <table:HeaderTabelControl Text="Nama"/>
+                        <table:HeaderTabelControl Text="Total"/>
+                        <table:HeaderTabelControl Text="Tanggal"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <table:ContentTabel Text="{Binding Id}" IsVisible="false"/>
+                            <table:ContentTabel Text="{Binding Customer}"/>
+                            <table:ContentTabel Text="{Binding TotalTransaksi}"/>
+                            <table:ContentTabel Text="{Binding Tanggal}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

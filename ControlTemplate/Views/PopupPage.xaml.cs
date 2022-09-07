@@ -1,9 +1,8 @@
 using ControlLibrary.Controls;
-using ControlTemplate.Controls;
 
 namespace ControlTemplate.Views;
 
-public partial class PopupPage : ModalControl
+public partial class PopupPage : ContentPage
 {
 	public PopupPage()
 	{

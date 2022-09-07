@@ -22,11 +22,15 @@
         Route="TestPage" />
     
     <ShellContent
-        Title="Data Sensor"
+        Title="Data Customer"
         ContentTemplate="{DataTemplate views:DataPage}"
         Route="DataPage" />
     <ShellContent
         Title="Custom Tabel"
         ContentTemplate="{DataTemplate views:CustomTabelPage}"
         Route="CustomTabelPage" />
+    <ShellContent
+        Title="Data Transaksi"
+        ContentTemplate="{DataTemplate views:TransaksiPage}"
+        Route="TransaksiPage" />
 </Shell>

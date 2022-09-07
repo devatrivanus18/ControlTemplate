@@ -12,5 +12,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(DashboardPage), typeof(DashboardPage));
         Routing.RegisterRoute(nameof(DataPage), typeof(DataPage));
         Routing.RegisterRoute(nameof(CustomTabelPage), typeof(CustomTabelPage));
+        Routing.RegisterRoute(nameof(TransaksiPage), typeof(TransaksiPage));
     }
 }

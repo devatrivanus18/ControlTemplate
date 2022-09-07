@@ -2,7 +2,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace ControlTemplate.Controls.TabelControl;
 
-public partial class HeaderTabelControl : Grid
+public partial class HeaderTabelControl : Frame
 {
 	public HeaderTabelControl()
 	{

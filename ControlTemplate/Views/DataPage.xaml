@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ControlTemplate.ViewModels"
              x:Class="ControlTemplate.Views.DataPage"
-             Title="Data Sensor">
+             Title="Data Customer">
     <ContentPage.BindingContext>
-        <vm:vmDataSensor/>
+        <vm:vmData/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding DataSensors}"
+            <ListView ItemsSource="{Binding DataCustomers}"
                       HasUnevenRows="True"
                        Margin="0,10,0,0">
                 <ListView.Header>
@@ -19,9 +19,8 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Suhu (°C)" HorizontalOptions="Fill"  Grid.Column="0"   FontSize="Small" FontAttributes="Bold"  TextColor="Black" HorizontalTextAlignment="Center" Margin="1"/>
-                        <Label Text="Kelembaban (%)" HorizontalOptions="Fill"  Grid.Column="1"  FontSize="Small" FontAttributes="Bold"  TextColor="Black" HorizontalTextAlignment="Center" Margin="1"/>
-                        <Label Text="Tanggal" HorizontalOptions="Fill"  Grid.Column="2"  FontSize="Small" FontAttributes="Bold"  TextColor="Black" HorizontalTextAlignment="Center" Margin="1"/>
+                        <Label Text="Prefix" HorizontalOptions="Fill"  Grid.Column="0"   FontSize="Small" FontAttributes="Bold"  TextColor="Black" HorizontalTextAlignment="Center" Margin="1"/>
+                        <Label Text="Nama" HorizontalOptions="Fill"  Grid.Column="1"  FontSize="Small" FontAttributes="Bold"  TextColor="Black" HorizontalTextAlignment="Center" Margin="1"/>
 
                     </Grid>
                 </ListView.Header>
@@ -35,11 +34,9 @@
                                             <ColumnDefinition Width="*"></ColumnDefinition>
                                             <ColumnDefinition Width="*"></ColumnDefinition>
                                             <ColumnDefinition Width="*"></ColumnDefinition>
-
                                         </Grid.ColumnDefinitions>
-                                        <Label VerticalOptions="CenterAndExpand" TextColor="Black" Grid.Column="0" Text ="{Binding Suhu}"  HorizontalTextAlignment="Center" Margin="3"></Label>
-                                        <Label VerticalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Text ="{Binding Kelembaban}"  HorizontalTextAlignment="Center" Margin="3"></Label>
-                                        <Label VerticalOptions="CenterAndExpand" TextColor="Black" Grid.Column="2" Text ="{Binding Tanggal}"  HorizontalTextAlignment="Center" Margin="3"></Label>
+                                        <Label VerticalOptions="CenterAndExpand" TextColor="Black" Grid.Column="0" Text ="{Binding Prefix}"  HorizontalTextAlignment="Center" Margin="3"></Label>
+                                        <Label VerticalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Text ="{Binding Nama}"  HorizontalTextAlignment="Center" Margin="3"></Label>
                                     </Grid>
                                 </Frame>
                             </ViewCell.View>

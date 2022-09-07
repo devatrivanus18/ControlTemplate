@@ -1,7 +1,4 @@
 ﻿using ControlTemplate.Models;
-using Grpc.Net.Client.Web;
-using Grpc.Net.Client;
-using gRPCAutomasiKandang;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using ControlTemplate.Views;
@@ -10,20 +7,34 @@ namespace ControlTemplate.Services
 {
     public class DataService : ObservableObject, IDataService
     {
-        private ObservableCollection<tblDataSensor> _dataSensor = new ObservableCollection<tblDataSensor>();
-        public ObservableCollection<tblDataSensor> DataSensor { get => _dataSensor; set => SetProperty(ref _dataSensor, value); }
-        
+        /*private ObservableCollection<tblDataSensor> _dataSensor = new ObservableCollection<tblDataSensor>();
+        public ObservableCollection<tblDataSensor> DataSensor { get => _dataSensor; set => SetProperty(ref _dataSensor, value); }*/
+
+        private ObservableCollection<tblDataCustomer> _dataCustomer = new ObservableCollection<tblDataCustomer>();
+        public ObservableCollection<tblDataCustomer> DataCustomers { get => _dataCustomer; set => SetProperty(ref _dataCustomer, value); }
+
+        private ObservableCollection<tblDataTransaksi> _dataTransaksi = new ObservableCollection<tblDataTransaksi>();
+        public ObservableCollection<tblDataTransaksi> DataTransaksi { get => _dataTransaksi; set => SetProperty(ref _dataTransaksi, value); }
+
+
         public tblPerangkat Perangkat { get; set; }
         public string Token;
         public DataService()
         {
             Perangkat = new tblPerangkat();
-            GetDataSensor();
+            DataCustomers.Add(new tblDataCustomer { Id = 1, Prefix = "CV", Nama = "Duta Karya Pertiwi"});
+            DataCustomers.Add(new tblDataCustomer { Id = 2, Prefix = "Bapak", Nama = "Arkan Hautami" });
+            DataCustomers.Add(new tblDataCustomer { Id = 3, Prefix = "Ibu", Nama = "Raina" });
+            DataCustomers.Add(new tblDataCustomer { Id = 4, Prefix = "Bapak", Nama = "Ahmad" });
+            DataCustomers.Add(new tblDataCustomer { Id = 5, Prefix = "Ibu", Nama = "Ningsih" });
+
+            DataTransaksi.Add(new tblDataTransaksi { Id=1, Customer="Arkan Hautami", TotalTransaksi = 50000, Tanggal="19-08-2022"});
+            // GetDataSensor();
         }
 
-        public async Task GetDataSensor()
+        public async Task<ObservableCollection<tblDataCustomer>> GetData()
         {
-            try
+            /*try
             {
                 var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
                 var channel = GrpcChannel.ForAddress("https://myuserdo.azurewebsites.net/", new GrpcChannelOptions { HttpClient = httpClient });
@@ -47,14 +58,21 @@ namespace ControlTemplate.Services
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-            }
+            }*/
+            DataCustomers.Add(new tblDataCustomer { Id = 1, Prefix = "CV", Nama = "Duta Karya Pertiwi" });
+            DataCustomers.Add(new tblDataCustomer { Id = 2, Prefix = "Bapak", Nama = "Arkan Hautami" });
+            DataCustomers.Add(new tblDataCustomer { Id = 3, Prefix = "Ibu", Nama = "Raina" });
+            DataCustomers.Add(new tblDataCustomer { Id = 4, Prefix = "Bapak", Nama = "Ahmad" });
+            DataCustomers.Add(new tblDataCustomer { Id = 5, Prefix = "Ibu", Nama = "Ningsih" });
+
+            return DataCustomers;
         }
 
         public async Task OnLogin(string username)
         {
             try
             {
-                var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
+                /*var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
                 var channel = GrpcChannel.ForAddress("https://myuserdo.azurewebsites.net/", new GrpcChannelOptions { HttpClient = httpClient });
                 var client = new LoginToken.LoginTokenClient(channel);
                 var clientRequested = new LoginTokenRequest { NomorSeri = username };
@@ -65,7 +83,7 @@ namespace ControlTemplate.Services
                 Perangkat.StatusAir = (int)reply.StatusAir;
                 Perangkat.StatusPakan = (int)reply.StatusPakan;
                 Perangkat.StatusPerangkat = (int)reply.StatusPerangkat;
-                //if (!string.IsNullOrEmpty(Token)) { await GetDataSensor(); }
+                //if (!string.IsNullOrEmpty(Token)) { await GetDataSensor(); }*/
                 await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
             }
             catch (Exception e)

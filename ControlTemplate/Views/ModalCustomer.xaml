@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
+             xmlns:table="clr-namespace:ControlTemplate.Controls.TabelControl"
+             x:Class="ControlTemplate.Views.ModalCustomer"
+             x:Name="this"
+             xmlns:vm="clr-namespace:ControlTemplate.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:vmData />
+    </ContentPage.BindingContext>
+    <control:ModalControl>
+        <control:ModalControl.ModalContent>
+            <CollectionView ItemsSource="{Binding DataCustomers}" HeightRequest="200">
+                <CollectionView.Header>
+                    <StackLayout Orientation="Vertical" Margin="10,10,10,10" Spacing="15">
+                        <SearchBar x:Name="searchBar" Placeholder="Cari Disini" Text="{Binding TextFilter}" 
+                                                       SearchCommand="{Binding FilterCommand}" 
+                                                       SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Margin="10,10,10,10" Spacing="15">
+                            <Label Margin="21,0,50,0" Text="{Binding Prefix}" TextColor="Black" />
+                            <Label Text="{Binding Nama}" TextColor="Black" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </control:ModalControl.ModalContent>
+    </control:ModalControl>
+</ContentPage>

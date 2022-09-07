@@ -3,38 +3,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ControlTemplate.Views.CustomTabelPage"
              xmlns:vm="clr-namespace:ControlTemplate.ViewModels"
+             xmlns:model="clr-namespace:ControlTemplate.Models"
              xmlns:control="clr-namespace:ControlTemplate.Controls"
              xmlns:table="clr-namespace:ControlTemplate.Controls.TabelControl"
+             xmlns:controls="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="Custom Tabel">
-    <ContentPage.BindingContext>
-        <vm:vmDataSensor />
-    </ContentPage.BindingContext>
-    <ContentPage.Content>
+        <ContentPage.BindingContext>
+            <vm:vmData />
+        </ContentPage.BindingContext>
+        <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding DataSensors}"
-                      HasUnevenRows="True"
+            <!--table:TabelControl Data="{Binding DataCustomers}">
+                <table:TabelControl.HeaderTabel>
+                    <table:HeaderTabelControl Text="Nama"/>
+                </table:TabelControl.HeaderTabel>
+                <table:TabelControl.ContentTabel>
+                    <table:ContentTabel Text="Halo"/>
+                </table:TabelControl.ContentTabel>
+            </table:TabelControl-->
+            <CollectionView ItemsSource="{Binding DataCustomers}"
                        Margin="0,10,0,0">
-                <ListView.Header>
+                <CollectionView.Header>
                     <StackLayout Orientation="Horizontal">
+                        <table:HeaderTabelControl Text="Prefix"/>
                         <table:HeaderTabelControl Text="Nama"/>
-                        <table:HeaderTabelControl Text="Kelembaban"/>
-                        <table:HeaderTabelControl Text="Tanggal"/>
                     </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout Orientation="Horizontal">
-                                    <table:ContentTabel Text="{Binding Suhu}"/>
-                                    <table:ContentTabel Text="{Binding Kelembaban}"/>
-                                    <table:ContentTabel Text="{Binding Tanggal}"/>
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <table:ContentTabel Text="{Binding Prefix}"/>
+                            <table:ContentTabel Text="{Binding Nama}"/>
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ContentView>
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Frame VerticalOptions="EndAndExpand" CornerRadius="20" BackgroundColor="White">
+                        <StackLayout Padding="5,0,5,200"  >
+                            <StackLayout  Padding="0,0,0,15">
+                                <BoxView  BackgroundColor="LightGray" CornerRadius="5" WidthRequest="100" HeightRequest="10" />
+                                <StackLayout.GestureRecognizers>
+                                    <SwipeGestureRecognizer  Threshold="15" Direction="Down" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <ContentView>
+                                <CollectionView ItemsSource="{Binding DataCustomers}" HeightRequest="200">
+                                    <CollectionView.Header>
+                                        <StackLayout Orientation="Vertical" Margin="10,10,10,10" Spacing="15">
+                                            <SearchBar x:Name="searchBar" Placeholder="Cari..." Text="{Binding TextFilter}">
+                                                <SearchBar.Behaviors>
+                                                    <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterCommand}" 
+                                                       CommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
+                                                </SearchBar.Behaviors>
+                                            </SearchBar>
+                                        </StackLayout>
+                                    </CollectionView.Header>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal" Margin="10,10,10,10" Spacing="15">
+                                                <Label Margin="21,0,50,0" Text="{Binding Prefix}" TextColor="Black" />
+                                                <Label Text="{Binding Nama}" TextColor="Black" />
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </ContentView>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
