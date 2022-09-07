@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<control:pthModal xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:control="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
-             xmlns:table="clr-namespace:ControlTemplate.Controls.TabelControl"
-             x:Class="ControlTemplate.Views.ModalCustomer"
-             x:Name="this"
-             xmlns:vm="clr-namespace:ControlTemplate.ViewModels">
-    <ContentPage.BindingContext>
-        <vm:vmData />
-    </ContentPage.BindingContext>
-    <control:ModalControl>
-        <control:ModalControl.ModalContent>
-            <CollectionView ItemsSource="{Binding DataCustomers}" HeightRequest="200">
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ControlTemplate.Views.ModalCustomer">
+    <control:pthModal.Content>
+        <Frame VerticalOptions="EndAndExpand" CornerRadius="20" BackgroundColor="White">
+            <CollectionView ItemsSource="{Binding DataCustomers}" HeightRequest="300">
                 <CollectionView.Header>
                     <StackLayout Orientation="Vertical" Margin="10,10,10,10" Spacing="15">
-                        <SearchBar x:Name="searchBar" Placeholder="Cari Disini" Text="{Binding TextFilter}" 
-                                                       SearchCommand="{Binding FilterCommand}" 
-                                                       SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" />
+                        <SearchBar x:Name="searchBar" Placeholder="Cari..." Text="{Binding TextFilter}">
+                            <SearchBar.Behaviors>
+                                <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterCommand}" 
+                                                       CommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
+                            </SearchBar.Behaviors>
+                        </SearchBar>
                     </StackLayout>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
@@ -28,6 +26,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </control:ModalControl.ModalContent>
-    </control:ModalControl>
-</ContentPage>
+        </Frame>
+    </control:pthModal.Content>
+</control:pthModal>

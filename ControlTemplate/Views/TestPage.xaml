@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:control="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
-             xmlns:controls="clr-namespace:ControlTemplate.Controls"
              xmlns:vm="clr-namespace:ControlTemplate.ViewModels"
              x:Class="ControlTemplate.Views.TestPage">
     <ContentPage.BindingContext>
@@ -10,7 +9,8 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-            <control:EntriControl Text="{Binding testLib}" Placeholder="Control Lib" />
+            <control:pthEntri Placeholder="Test" TextTransform="Uppercase"/>
+            <control:pthCheckBox Text="Tampilkan Password" Color="Red"/>
             <Button Text="Kirim" Command="{Binding SubmitCommand}"/>
         </StackLayout>
     </ContentPage.Content>

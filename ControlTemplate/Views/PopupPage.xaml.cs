@@ -2,7 +2,7 @@ using ControlLibrary.Controls;
 
 namespace ControlTemplate.Views;
 
-public partial class PopupPage : ContentPage
+public partial class PopupPage : pthModal
 {
 	public PopupPage()
 	{

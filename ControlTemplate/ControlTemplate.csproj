@@ -82,9 +82,6 @@
 	  <Reference Include="ControlLibrary">
 	    <HintPath>..\..\ControlLibrary\ControlLibrary\obj\Debug\net6.0\ControlLibrary.dll</HintPath>
 	  </Reference>
-	  <Reference Include="CustomControlLibrary">
-	    <HintPath>..\..\CustomControlLibrary\CustomControlLibrary\obj\Debug\net6.0\CustomControlLibrary.dll</HintPath>
-	  </Reference>
 	</ItemGroup>
 
 	<ItemGroup>

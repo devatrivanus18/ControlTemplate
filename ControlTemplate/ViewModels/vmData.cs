@@ -10,7 +10,7 @@ namespace ControlTemplate.ViewModels
     {
         private ObservableCollection<tblDataCustomer> _dataCustomers = new ObservableCollection<tblDataCustomer>();
 
-        private string _textFilter;
+        private string _textFilter = "Hola!";
         public string TextFilter { get => _textFilter; set => SetProperty(ref _textFilter, value); }
         public ObservableCollection<tblDataCustomer> DataCustomers { get => _dataCustomers; set => SetProperty(ref _dataCustomers, value); }
         IDataService DataService;
