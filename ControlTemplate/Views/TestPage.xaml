@@ -9,8 +9,8 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-            <control:pthEntri Placeholder="Test 2" Text="123"/>
-            <control:pthEntri Placeholder="Test"/>
+            <control:pthEntri Placeholder="Test Lib" />
+            <control:pthEntri Placeholder="Test Lib 2" Text="123" />
             <Button Text="Kirim" Command="{Binding SubmitCommand}"/>
         </StackLayout>
     </ContentPage.Content>

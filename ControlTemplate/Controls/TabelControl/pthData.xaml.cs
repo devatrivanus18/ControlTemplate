@@ -1,3 +1,4 @@
+
 namespace ControlTemplate.Controls.TabelControl;
 
 public partial class pthData : Frame
@@ -9,7 +10,9 @@ public partial class pthData : Frame
 		foreach (var item in x)
 		{
 			var y = item;
-			//DataKolom.Add(new ContentTabel { IsiKolom = {Binding item} });
+			var e = new ContentTabel();
+			//e.SetBinding(e.IsiKolom, new Binding(item));
+			//DataKolom.Add(new ContentTabel { IsiKolom = SetBinding() }) ;
         }
     }
 }
