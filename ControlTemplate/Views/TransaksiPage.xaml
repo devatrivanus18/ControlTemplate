@@ -25,10 +25,10 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
-                            <table:ContentTabel Text="{Binding Id}" IsVisible="false"/>
-                            <table:ContentTabel Text="{Binding Customer}"/>
-                            <table:ContentTabel Text="{Binding TotalTransaksi}"/>
-                            <table:ContentTabel Text="{Binding Tanggal}"/>
+                            <table:ContentTabel IsiKolom="{Binding Id}" IsVisible="false"/>
+                            <table:ContentTabel IsiKolom="{Binding Customer}"/>
+                            <table:ContentTabel IsiKolom="{Binding TotalTransaksi}"/>
+                            <table:ContentTabel IsiKolom="{Binding Tanggal}"/>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

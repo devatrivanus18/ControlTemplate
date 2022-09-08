@@ -9,8 +9,9 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-            <control:pthEntri Placeholder="Test" TextTransform="Uppercase"/>
-            <control:pthCheckBox Text="Tampilkan Password" Color="Red"/>
+            <control:pthEntri Placeholder="Test" Text="{Binding testLib, Mode=TwoWay}"/>
+            <control:pthEntri Placeholder="Test 2" Text="12341246890s"/>
+            <Entry Text="{Binding testLib}" TextTransform="Uppercase" Placeholder="Test"/>
             <Button Text="Kirim" Command="{Binding SubmitCommand}"/>
         </StackLayout>
     </ContentPage.Content>

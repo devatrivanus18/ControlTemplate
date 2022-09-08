@@ -14,67 +14,28 @@
         </ContentPage.BindingContext>
         <ContentPage.Content>
         <StackLayout>
-            <table:TabelControl Data="{Binding DataCustomers}">
-                <table:TabelControl.HeaderTabel>
-                    <table:HeaderTabelControl Text="Nama"/>
-                </table:TabelControl.HeaderTabel>
-                <table:TabelControl.ContentTabel>
-                    <table:ContentTabel Text="Halo"/>
-                </table:TabelControl.ContentTabel>
-            </table:TabelControl>
+            <table:TabelControl ItemsSource="{Binding DataCustomers}" />
             <CollectionView ItemsSource="{Binding DataCustomers}"
                        Margin="0,10,0,0">
                 <CollectionView.Header>
-                    <StackLayout Orientation="Horizontal">
-                        <table:HeaderTabelControl Text="Prefix"/>
-                        <table:HeaderTabelControl Text="Nama"/>
-                    </StackLayout>
+                    <Frame Padding="10" Margin="0" BorderColor="DarkSlateGrey" BackgroundColor="Gray" CornerRadius="0">
+                        <StackLayout Orientation="Horizontal">
+                            <table:HeaderTabelControl JudulKolom="Prefix"/>
+                            <table:HeaderTabelControl JudulKolom="Nama"/>
+                        </StackLayout>
+                    </Frame>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal">
-                            <table:ContentTabel Text="{Binding Prefix}"/>
-                            <table:ContentTabel Text="{Binding Nama}"/>
-                        </StackLayout>
+                        <Frame Padding="10" Margin="0" BorderColor="DarkSlateGrey" CornerRadius="0">
+                            <StackLayout Orientation="Horizontal" x:Name="konten" HorizontalOptions="CenterAndExpand">
+                                <table:ContentTabel IsiKolom="{Binding Prefix}"/>
+                                <table:ContentTabel IsiKolom="{Binding Nama}"/>
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <!--ContentView>
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                    <Frame VerticalOptions="EndAndExpand" CornerRadius="20" BackgroundColor="White">
-                        <StackLayout Padding="5,0,5,200"  >
-                            <StackLayout  Padding="0,0,0,15">
-                                <BoxView  BackgroundColor="LightGray" CornerRadius="5" WidthRequest="100" HeightRequest="10" />
-                                <StackLayout.GestureRecognizers>
-                                    <SwipeGestureRecognizer  Threshold="15" Direction="Down" />
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-                            <ContentView>
-                                <CollectionView ItemsSource="{Binding DataCustomers}" HeightRequest="200">
-                                    <CollectionView.Header>
-                                        <StackLayout Orientation="Vertical" Margin="10,10,10,10" Spacing="15">
-                                            <SearchBar x:Name="searchBar" Placeholder="Cari..." Text="{Binding TextFilter}">
-                                                <SearchBar.Behaviors>
-                                                    <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterCommand}" 
-                                                       CommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
-                                                </SearchBar.Behaviors>
-                                            </SearchBar>
-                                        </StackLayout>
-                                    </CollectionView.Header>
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout Orientation="Horizontal" Margin="10,10,10,10" Spacing="15">
-                                                <Label Margin="21,0,50,0" Text="{Binding Prefix}" TextColor="Black" />
-                                                <Label Text="{Binding Nama}" TextColor="Black" />
-                                            </StackLayout>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-                            </ContentView>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </ContentView-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

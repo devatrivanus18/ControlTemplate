@@ -1,11 +1,12 @@
-﻿using System.Windows.Input;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows.Input;
 
 namespace ControlTemplate.ViewModels
 {
-    public class vmTest
+    public class vmTest : ObservableObject
     {
-        public string testApp { get; set; }
-        public string testLib { get; set; }
+        private string _testApp = "1234";
+        public string testLib { get => _testApp; set => SetProperty(ref _testApp, value); }
         public ICommand SubmitCommand { get; set; }
         public vmTest()
         {
@@ -14,7 +15,6 @@ namespace ControlTemplate.ViewModels
 
         private void Submit()
         {
-            var x = testApp;
             var y = testLib;
         }
     }

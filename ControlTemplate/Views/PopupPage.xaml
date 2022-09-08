@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ControlTemplate.Views.PopupPage"
              xmlns:control="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
-             Title="PopupPage">
+             >
     <control:pthModal.ModalContent>
         <ContentView>
             <StackLayout Spacing="15">

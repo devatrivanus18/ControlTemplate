@@ -64,23 +64,15 @@
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
 		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Protobuf Include="..\..\gRPCAutomasiKandang\gRPCAutomasiKandang\Protos\DataSensor.proto" GrpcServices="Client">
-	    <Link>Protos\DataSensor.proto</Link>
-	  </Protobuf>
-	  <Protobuf Include="..\..\gRPCAutomasiKandang\gRPCAutomasiKandang\Protos\LoginToken.proto" GrpcServices="Client">
-	    <Link>Protos\LoginToken.proto</Link>
-	  </Protobuf>
-	  <Protobuf Include="..\..\gRPCAutomasiKandang\gRPCAutomasiKandang\Protos\Perangkat.proto" GrpcServices="Client">
-	    <Link>Protos\Perangkat.proto</Link>
-	  </Protobuf>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Reference Include="ControlLibrary">
 	    <HintPath>..\..\ControlLibrary\ControlLibrary\obj\Debug\net6.0\ControlLibrary.dll</HintPath>
+	  </Reference>
+	  <Reference Include="gRPCAutomasiKandang">
+	    <HintPath>..\..\gRPCAutomasiKandang\gRPCAutomasiKandang\obj\Debug\net6.0\gRPCAutomasiKandang.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
@@ -95,6 +87,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\TabelControl\HeaderTabelControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\TabelControl\pthData.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\TabelControl\TabelControl.xaml">

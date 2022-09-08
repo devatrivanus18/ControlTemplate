@@ -1,19 +1,20 @@
 namespace ControlTemplate.Controls.TabelControl;
 
-public partial class ContentTabel : Frame
+public partial class ContentTabel : Label
 {
 	public ContentTabel()
 	{
+        var x = TabelControl.OnItemSourceChanged;
 		InitializeComponent();
 	}
 
-    #region Text
-    public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(HeaderTabelControl), string.Empty, BindingMode.TwoWay);
+    #region IsiKolom
+    public static readonly BindableProperty IsiKolomProperty = BindableProperty.Create(nameof(IsiKolom), typeof(string), typeof(ContentTabel), string.Empty, BindingMode.TwoWay);
 
-    public string Text
+    public string IsiKolom
     {
-        get => (string)GetValue(TextProperty);
-        set => SetValue(TextProperty, value);
+        get => (string)GetValue(IsiKolomProperty);
+        set => SetValue(IsiKolomProperty, value);
     }
     #endregion
 }

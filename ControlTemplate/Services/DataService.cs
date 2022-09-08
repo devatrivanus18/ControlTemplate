@@ -2,13 +2,16 @@
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using ControlTemplate.Views;
+using Grpc.Net.Client.Web;
+using Grpc.Net.Client;
+using gRPCAutomasiKandang;
 
 namespace ControlTemplate.Services
 {
     public class DataService : ObservableObject, IDataService
     {
-        /*private ObservableCollection<tblDataSensor> _dataSensor = new ObservableCollection<tblDataSensor>();
-        public ObservableCollection<tblDataSensor> DataSensor { get => _dataSensor; set => SetProperty(ref _dataSensor, value); }*/
+        private ObservableCollection<tblDataSensor> _dataSensor = new ObservableCollection<tblDataSensor>();
+        public ObservableCollection<tblDataSensor> DataSensor { get => _dataSensor; set => SetProperty(ref _dataSensor, value); }
 
         private ObservableCollection<tblDataCustomer> _dataCustomer = new ObservableCollection<tblDataCustomer>();
         public ObservableCollection<tblDataCustomer> DataCustomers { get => _dataCustomer; set => SetProperty(ref _dataCustomer, value); }
@@ -29,7 +32,7 @@ namespace ControlTemplate.Services
             DataCustomers.Add(new tblDataCustomer { Id = 5, Prefix = "Ibu", Nama = "Ningsih" });
 
             DataTransaksi.Add(new tblDataTransaksi { Id=1, Customer="Arkan Hautami", TotalTransaksi = 50000, Tanggal="19-08-2022"});
-            // GetDataSensor();
+            //GetData();
         }
 
         public async Task<ObservableCollection<tblDataCustomer>> GetData()

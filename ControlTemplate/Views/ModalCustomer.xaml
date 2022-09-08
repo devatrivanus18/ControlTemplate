@@ -5,7 +5,7 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="ControlTemplate.Views.ModalCustomer">
     <control:pthModal.Content>
-        <Frame VerticalOptions="EndAndExpand" CornerRadius="20" BackgroundColor="White">
+        <!--Frame VerticalOptions="EndAndExpand" CornerRadius="20" BackgroundColor="White"-->
             <CollectionView ItemsSource="{Binding DataCustomers}" HeightRequest="300">
                 <CollectionView.Header>
                     <StackLayout Orientation="Vertical" Margin="10,10,10,10" Spacing="15">
@@ -26,6 +26,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </Frame>
+        <!--/Frame-->
     </control:pthModal.Content>
 </control:pthModal>

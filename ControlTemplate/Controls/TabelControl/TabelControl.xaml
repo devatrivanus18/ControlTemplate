@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <StackLayout xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabel="clr-namespace:ControlTemplate.Controls.TabelControl"
              x:Name="conTabel"
-             x:Class="ControlTemplate.Controls.TabelControl.TabelControl" BindingContext="{x:Reference conTabel}">
-    <CollectionView ItemsSource="{Binding Data}"
-                       Margin="0,10,0,0">
+             x:Class="ControlTemplate.Controls.TabelControl.TabelControl">
+    <CollectionView Margin="0,10,0,0" 
+                    BindingContext="{x:Reference conTabel}" 
+                    ItemsSource="{Binding ItemsSource}"
+                    x:Name="Tabel">
         <CollectionView.Header>
-            <ContentView x:Name="ContentHeader" />
+            <StackLayout Orientation="Horizontal" x:Name="Header">
+            </StackLayout>
         </CollectionView.Header>
         <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <ContentView x:Name="KontenTabel" Content="{Binding ContentTabel}" />
+            <DataTemplate x:Name="Data">
+                <!--ContentView x:Name="KontenTabel" Content="{Binding Content}"/ -->
+                <tabel:pthData />
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabel="clr-namespace:ControlTemplate.Controls.TabelControl"
+             Padding="10" Margin="0" x:Name="KontenFrame"
+             BorderColor="DarkSlateGrey" CornerRadius="0"
+             x:Class="ControlTemplate.Controls.TabelControl.pthData">
+    <StackLayout Orientation="Horizontal" x:Name="DataKolom" HorizontalOptions="CenterAndExpand">
+        <tabel:ContentTabel IsiKolom="{Binding Prefix}"/>
+    </StackLayout>
+</Frame>
