@@ -86,7 +86,6 @@ public partial class TabelControl : StackLayout
         }
 
     }
-
     public IList ItemsSource
     {
         get => (IList)GetValue(ItemsSourceProperty);
