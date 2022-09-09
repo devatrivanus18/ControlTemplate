@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ControlTemplate.ViewModels"
-             xmlns:table="clr-namespace:ControlTemplate.Controls.TabelControl"
+             xmlns:pth="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
              x:Class="ControlTemplate.Views.TransaksiPage"
              Title="Transaksi">
     <ContentPage.BindingContext>
@@ -12,6 +12,6 @@
         <ToolbarItem Text="Tambah" Command="{Binding GetModalCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <table:TabelControl ItemsSource="{Binding DataTransaksi}" />
+        <pth:pthTabel ItemsSource="{Binding DataTransaksi}" />
     </ContentPage.Content>
 </ContentPage>

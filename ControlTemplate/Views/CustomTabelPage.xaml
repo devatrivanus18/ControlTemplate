@@ -4,15 +4,13 @@
              x:Class="ControlTemplate.Views.CustomTabelPage"
              xmlns:vm="clr-namespace:ControlTemplate.ViewModels"
              xmlns:model="clr-namespace:ControlTemplate.Models"
-             xmlns:control="clr-namespace:ControlTemplate.Controls"
-             xmlns:table="clr-namespace:ControlTemplate.Controls.TabelControl"
-             xmlns:controls="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
+             xmlns:pth="clr-namespace:ControlLibrary.Controls;assembly=ControlLibrary"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="Custom Tabel">
         <ContentPage.BindingContext>
             <vm:vmData />
         </ContentPage.BindingContext>
     <ContentPage.Content>
-        <controls:pthTabel ItemsSource="{Binding DataCustomers}" SelectedCommand="{Binding SelectedDataCommand}"/>
+        <pth:pthTabel ItemsSource="{Binding DataCustomers}" SelectedCommand="{Binding SelectedDataCommand}"/>
     </ContentPage.Content>
 </ContentPage>

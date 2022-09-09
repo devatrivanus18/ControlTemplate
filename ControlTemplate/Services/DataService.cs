@@ -2,8 +2,6 @@
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using ControlTemplate.Views;
-using Grpc.Net.Client.Web;
-using Grpc.Net.Client;
 
 namespace ControlTemplate.Services
 {
