@@ -4,18 +4,36 @@
              xmlns:tabel="clr-namespace:ControlTemplate.Controls.TabelControl"
              x:Name="conTabel"
              x:Class="ControlTemplate.Controls.TabelControl.TabelControl">
-    <CollectionView Margin="0,10,0,0" 
+    <CollectionView Margin="0,10,0,0" SelectionMode="Single"
                     BindingContext="{x:Reference conTabel}" 
                     ItemsSource="{Binding ItemsSource}"
                     x:Name="Tabel">
         <CollectionView.Header>
-            <StackLayout Orientation="Horizontal" x:Name="Header">
-            </StackLayout>
+            <Frame Padding="10" Margin="0" BorderColor="Transparent" 
+                   BackgroundColor="White" HasShadow="True" CornerRadius="0">
+                <StackLayout Orientation="Horizontal" x:Name="Header">
+                </StackLayout>
+            </Frame>
         </CollectionView.Header>
         <CollectionView.ItemTemplate>
             <DataTemplate x:Name="Data">
-                <!--ContentView x:Name="KontenTabel" Content="{Binding Content}"/ -->
-                <tabel:pthData />
+                <Frame>
+                    <tabel:pthData />
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="LightGray" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={x:Reference conTabel}, Path=SelectedCommand}"
+                                              CommandParameter="{Binding .}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

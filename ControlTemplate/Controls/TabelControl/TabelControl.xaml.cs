@@ -6,6 +6,7 @@ namespace ControlTemplate.Controls.TabelControl;
 public partial class TabelControl : StackLayout
 {
     public static List<string> Atribut { get; set; }
+
 	public TabelControl()
 	{
        
@@ -13,49 +14,21 @@ public partial class TabelControl : StackLayout
         Atribut = new List<string>();
     }
 
-    #region HeaderTabel
-    public static readonly BindableProperty HeaderTabelProperty = BindableProperty.Create(
-        propertyName: nameof(HeaderTabel),
-        returnType: typeof(View),
+    #region SelectedCommand
+    public static readonly BindableProperty SelectedCommandProperty = BindableProperty.Create(
+        propertyName: nameof(SelectedCommand),
+        returnType: typeof(Command),
         declaringType: typeof(TabelControl),
         defaultValue: null,
-        defaultBindingMode: BindingMode.OneWay,
-        propertyChanged: HeaderTabelPropertyChanged);
+        defaultBindingMode: BindingMode.TwoWay);
 
-    private static void HeaderTabelPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+    public Command SelectedCommand
     {
-        var controls = (TabelControl)bindable;
-        //if (newValue != null)
-            //controls.ContentHeader.Content = (View)newValue;
-    }
-
-    public View HeaderTabel
-    {
-        get => (View)GetValue(HeaderTabelProperty);
-        set { SetValue(HeaderTabelProperty, value); }
+        get => (Command)GetValue(SelectedCommandProperty);
+        set { SetValue(SelectedCommandProperty, value); }
     }
     #endregion
 
-    #region Content
-    public static readonly BindableProperty ContentProperty = BindableProperty.Create(
-        propertyName: nameof(Content),
-        returnType: typeof(View),
-        declaringType: typeof(TabelControl),
-        defaultValue: null,
-        defaultBindingMode: BindingMode.OneWay);
-
-    /*private static void ContentTabelPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var controls = (TabelControl)bindable;
-        if (newValue != null)
-            controls.KontenTabel.Content = (ContentView)newValue;
-    }*/
-    public View Content
-    {
-        get => (View)GetValue(ContentProperty);
-        set { SetValue(ContentProperty, value); }
-    }
-    #endregion
 
     #region Data
     public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(
@@ -74,13 +47,22 @@ public partial class TabelControl : StackLayout
         var loop = 0;
         foreach (JObject content in array)
         {
-            if (loop < 1)
+            if (loop == 0)
                 foreach (JProperty prop in content.Properties())
                 {
-                    controls.Header.Add(new HeaderTabelControl { JudulKolom = $"{prop.Name}" });
-                    Atribut.Add(prop.Name);
                     
-                    //Console.WriteLine(prop.Name);
+                    var x = Atribut.Where(e => e.Contains(prop.Name));
+                    if (!x.Any())
+                    {
+                        Atribut.Add(prop.Name);
+                        var label = new Label();
+                        label.Padding = 10;
+                        label.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                        label.HorizontalTextAlignment = TextAlignment.Center;
+                        label.Text = prop.Name;
+                        label.FontAttributes = FontAttributes.Bold;
+                        controls.Header.Add(label);
+                    }
                 }
                 loop++;
         }
@@ -92,6 +74,7 @@ public partial class TabelControl : StackLayout
         set => SetValue(ItemsSourceProperty, value);
     }
 
-    
-    #endregion    
+
+    #endregion
+
 }

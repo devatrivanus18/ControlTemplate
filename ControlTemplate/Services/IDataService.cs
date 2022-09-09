@@ -13,8 +13,8 @@ namespace ControlTemplate.Services
         tblPerangkat Perangkat { get; set; }
         ObservableCollection<tblDataCustomer> DataCustomers { get; set; }
         ObservableCollection<tblDataTransaksi> DataTransaksi { get; set; }
-
-        Task<ObservableCollection<tblDataCustomer>> GetData();
+        ObservableCollection<tblDataSensor> DataSensor { get; set; }
+        Task<ObservableCollection<tblDataSensor>> GetData();
         Task OnLogin(string username);
     }
 }

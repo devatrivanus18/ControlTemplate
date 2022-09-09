@@ -83,12 +83,6 @@
 	  <MauiXaml Update="Controls\SearchControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Controls\TabelControl\ContentTabel.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\TabelControl\HeaderTabelControl.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Controls\TabelControl\pthData.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

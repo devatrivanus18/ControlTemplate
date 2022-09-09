@@ -12,7 +12,5 @@ namespace ControlTemplate.Models
         public int IdPerangkat { get; set; }
         public string Suhu { get; set; }
         public string Kelembaban { get; set; }
-        public string? Tanggal { get; set; }
-        public string? Waktu { get; set; }
     }
 }

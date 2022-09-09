@@ -5,27 +5,6 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="ControlTemplate.Views.ModalCustomer">
     <control:pthModal.Content>
-        <!--Frame VerticalOptions="EndAndExpand" CornerRadius="20" BackgroundColor="White"-->
-            <CollectionView ItemsSource="{Binding DataCustomers}" HeightRequest="300">
-                <CollectionView.Header>
-                    <StackLayout Orientation="Vertical" Margin="10,10,10,10" Spacing="15">
-                        <SearchBar x:Name="searchBar" Placeholder="Cari..." Text="{Binding TextFilter}">
-                            <SearchBar.Behaviors>
-                                <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterCommand}" 
-                                                       CommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
-                            </SearchBar.Behaviors>
-                        </SearchBar>
-                    </StackLayout>
-                </CollectionView.Header>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal" Margin="10,10,10,10" Spacing="15">
-                            <Label Margin="21,0,50,0" Text="{Binding Prefix}" TextColor="Black" />
-                            <Label Text="{Binding Nama}" TextColor="Black" />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        <!--/Frame-->
+        <control:pthTabel ItemsSource="{Binding DataCustomers}" />
     </control:pthModal.Content>
 </control:pthModal>

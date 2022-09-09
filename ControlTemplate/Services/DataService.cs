@@ -30,14 +30,13 @@ namespace ControlTemplate.Services
             DataCustomers.Add(new tblDataCustomer { Id = 3, Prefix = "Ibu", Nama = "Raina" });
             DataCustomers.Add(new tblDataCustomer { Id = 4, Prefix = "Bapak", Nama = "Ahmad" });
             DataCustomers.Add(new tblDataCustomer { Id = 5, Prefix = "Ibu", Nama = "Ningsih" });
-
             DataTransaksi.Add(new tblDataTransaksi { Id=1, Customer="Arkan Hautami", TotalTransaksi = 50000, Tanggal="19-08-2022"});
             //GetData();
         }
 
-        public async Task<ObservableCollection<tblDataCustomer>> GetData()
+        public async Task<ObservableCollection<tblDataSensor>> GetData()
         {
-            /*try
+            try
             {
                 var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
                 var channel = GrpcChannel.ForAddress("https://myuserdo.azurewebsites.net/", new GrpcChannelOptions { HttpClient = httpClient });
@@ -52,23 +51,16 @@ namespace ControlTemplate.Services
                             IdDataSensor = (int)data.IdDataSensor,
                             IdPerangkat = (int)data.IdPerangkat,
                             Suhu = data.Suhu,
-                            Kelembaban = data.Kelembaban,
-                            Tanggal = data.Tanggal,
-                            Waktu = data.Waktu,
+                            Kelembaban = data.Kelembaban
                         });
                     }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-            }*/
-            DataCustomers.Add(new tblDataCustomer { Id = 1, Prefix = "CV", Nama = "Duta Karya Pertiwi" });
-            DataCustomers.Add(new tblDataCustomer { Id = 2, Prefix = "Bapak", Nama = "Arkan Hautami" });
-            DataCustomers.Add(new tblDataCustomer { Id = 3, Prefix = "Ibu", Nama = "Raina" });
-            DataCustomers.Add(new tblDataCustomer { Id = 4, Prefix = "Bapak", Nama = "Ahmad" });
-            DataCustomers.Add(new tblDataCustomer { Id = 5, Prefix = "Ibu", Nama = "Ningsih" });
+            }
 
-            return DataCustomers;
+            return DataSensor;
         }
 
         public async Task OnLogin(string username)

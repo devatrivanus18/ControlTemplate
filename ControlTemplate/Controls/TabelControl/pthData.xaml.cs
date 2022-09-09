@@ -1,18 +1,20 @@
 
 namespace ControlTemplate.Controls.TabelControl;
 
-public partial class pthData : Frame
+public partial class pthData : Grid
 {
-	public pthData()
+    public pthData()
 	{
 		var x = TabelControl.Atribut;
 		InitializeComponent();
 		foreach (var item in x)
 		{
-			var y = item;
-			var e = new ContentTabel();
-			//e.SetBinding(e.IsiKolom, new Binding(item));
-			//DataKolom.Add(new ContentTabel { IsiKolom = SetBinding() }) ;
+			var label = new Label();
+            label.Padding = 10;
+            label.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            label.HorizontalTextAlignment = TextAlignment.Center;
+            label.SetBinding(Label.TextProperty, item);
+			DataKolom.Add(label);
         }
     }
 }
