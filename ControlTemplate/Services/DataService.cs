@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using ControlTemplate.Views;
 using Grpc.Net.Client.Web;
 using Grpc.Net.Client;
-using gRPCAutomasiKandang;
 
 namespace ControlTemplate.Services
 {
@@ -34,34 +33,7 @@ namespace ControlTemplate.Services
             //GetData();
         }
 
-        public async Task<ObservableCollection<tblDataSensor>> GetData()
-        {
-            try
-            {
-                var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
-                var channel = GrpcChannel.ForAddress("https://myuserdo.azurewebsites.net/", new GrpcChannelOptions { HttpClient = httpClient });
-                var client = new DataSensor.DataSensorClient(channel);
-                var request = new DataRequest { IdPerangkat = 1 };
-                using (var reply = client.GetSemuaData(request))
-                    while (await reply.ResponseStream.MoveNext(System.Threading.CancellationToken.None))
-                    {
-                        DataResponse data = reply.ResponseStream.Current;
-                        DataSensor.Add(new tblDataSensor
-                        {
-                            IdDataSensor = (int)data.IdDataSensor,
-                            IdPerangkat = (int)data.IdPerangkat,
-                            Suhu = data.Suhu,
-                            Kelembaban = data.Kelembaban
-                        });
-                    }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-            return DataSensor;
-        }
+        
 
         public async Task OnLogin(string username)
         {

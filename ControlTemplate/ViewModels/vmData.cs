@@ -29,14 +29,9 @@ namespace ControlTemplate.ViewModels
             SelectedDataCommand = new Command(OnDataDipilih);
             DataCustomers.Clear();
             DataCustomers = DataService.DataCustomers;
-            GetDataAsync(); 
         }
 
-        async Task GetDataAsync()
-        {
-            DataSensor.Clear();
-            DataSensor = await DataService.GetData();
-        }
+       
         public async void OnFilterData()
         {
             //if (!string.IsNullOrWhiteSpace(_textFilter))

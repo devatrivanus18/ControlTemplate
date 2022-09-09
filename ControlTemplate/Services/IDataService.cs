@@ -14,7 +14,6 @@ namespace ControlTemplate.Services
         ObservableCollection<tblDataCustomer> DataCustomers { get; set; }
         ObservableCollection<tblDataTransaksi> DataTransaksi { get; set; }
         ObservableCollection<tblDataSensor> DataSensor { get; set; }
-        Task<ObservableCollection<tblDataSensor>> GetData();
         Task OnLogin(string username);
     }
 }

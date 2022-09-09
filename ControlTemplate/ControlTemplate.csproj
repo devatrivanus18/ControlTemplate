@@ -71,9 +71,6 @@
 	  <Reference Include="ControlLibrary">
 	    <HintPath>..\..\ControlLibrary\ControlLibrary\obj\Debug\net6.0\ControlLibrary.dll</HintPath>
 	  </Reference>
-	  <Reference Include="gRPCAutomasiKandang">
-	    <HintPath>..\..\gRPCAutomasiKandang\gRPCAutomasiKandang\obj\Debug\net6.0\gRPCAutomasiKandang.dll</HintPath>
-	  </Reference>
 	</ItemGroup>
 
 	<ItemGroup>
