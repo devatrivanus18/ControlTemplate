@@ -11,7 +11,11 @@
         <CollectionView.Header>
             <Frame Padding="10" Margin="0" BorderColor="Transparent" 
                    BackgroundColor="White" HasShadow="True" CornerRadius="0">
-                <StackLayout Orientation="Horizontal" x:Name="Header">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" x:Name="Header">
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" x:Name="Filter">
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </CollectionView.Header>

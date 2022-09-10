@@ -4,6 +4,6 @@
              xmlns:tabel="clr-namespace:ControlTemplate.Controls.TabelControl"
              Padding="10" Margin="0" x:Name="KontenFrame"
              x:Class="ControlTemplate.Controls.TabelControl.pthData">
-    <StackLayout Orientation="Horizontal" x:Name="DataKolom" HorizontalOptions="CenterAndExpand">
+     <StackLayout Orientation="Horizontal" x:Name="DataKolom" HorizontalOptions="CenterAndExpand">
     </StackLayout>
 </Grid>

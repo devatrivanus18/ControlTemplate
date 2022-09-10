@@ -1,4 +1,6 @@
 
+using Microsoft.Maui.Controls;
+
 namespace ControlTemplate.Controls.TabelControl;
 
 public partial class pthData : Grid
@@ -9,7 +11,7 @@ public partial class pthData : Grid
 		InitializeComponent();
 		foreach (var item in x)
 		{
-			var label = new Label();
+            var label = new Label();
             label.Padding = 10;
             label.HorizontalOptions = LayoutOptions.CenterAndExpand;
             label.HorizontalTextAlignment = TextAlignment.Center;
@@ -17,4 +19,6 @@ public partial class pthData : Grid
 			DataKolom.Add(label);
         }
     }
+
+    
 }

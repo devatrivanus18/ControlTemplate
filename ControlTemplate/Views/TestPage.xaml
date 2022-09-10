@@ -8,9 +8,9 @@
         <vm:vmTest/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="50">
             <pth:pthEntri Placeholder="Test Lib" />
-            <pth:pthEntri Placeholder="Test Lib 2" Text="123" />
+            <pth:pthEntri Placeholder="Test Lib 2" Text="192.168.110.2" />
             <Button Text="Kirim" Command="{Binding SubmitCommand}"/>
         </StackLayout>
     </ContentPage.Content>

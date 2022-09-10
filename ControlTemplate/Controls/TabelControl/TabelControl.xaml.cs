@@ -6,12 +6,13 @@ namespace ControlTemplate.Controls.TabelControl;
 public partial class TabelControl : StackLayout
 {
     public static List<string> Atribut { get; set; }
-
-	public TabelControl()
+    public static List<object> DataList { get; set; }
+    public TabelControl()
 	{
        
 		InitializeComponent();
         Atribut = new List<string>();
+        DataList = new List<object>();
     }
 
     #region SelectedCommand
@@ -47,6 +48,7 @@ public partial class TabelControl : StackLayout
         var loop = 0;
         foreach (JObject content in array)
         {
+            DataList.Add(array[loop]);
             if (loop == 0)
                 foreach (JProperty prop in content.Properties())
                 {
@@ -62,6 +64,15 @@ public partial class TabelControl : StackLayout
                         label.Text = prop.Name;
                         label.FontAttributes = FontAttributes.Bold;
                         controls.Header.Add(label);
+
+                        var filter = new SearchBar();
+                        filter.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                        filter.HorizontalTextAlignment = TextAlignment.Center;
+                        filter.WidthRequest = 200;
+                        filter.Placeholder = prop.Name;
+                        filter.PlaceholderColor = Colors.Transparent;
+                        filter.TextChanged += new EventHandler<TextChangedEventArgs>(filter_TextChanged);
+                        controls.Filter.Add(filter);
                     }
                 }
                 loop++;
@@ -74,7 +85,15 @@ public partial class TabelControl : StackLayout
         set => SetValue(ItemsSourceProperty, value);
     }
 
-
     #endregion
+
+    public static void filter_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var search = sender as SearchBar;
+        var filterKolom = search.Placeholder;
+        //var x = DataList.Where(i => i.ToString().Contains("Arkan")).ToList();
+    }
+
+    
 
 }
