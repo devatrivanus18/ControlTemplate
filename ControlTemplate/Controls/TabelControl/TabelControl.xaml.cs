@@ -1,3 +1,4 @@
+using ControlTemplate.Models;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 
@@ -7,6 +8,7 @@ public partial class TabelControl : StackLayout
 {
     public static List<string> Atribut { get; set; }
     public static List<object> DataList { get; set; }
+
     public TabelControl()
 	{
        
@@ -91,7 +93,8 @@ public partial class TabelControl : StackLayout
     {
         var search = sender as SearchBar;
         var filterKolom = search.Placeholder;
-        //var x = DataList.Where(i => i.ToString().Contains("Arkan")).ToList();
+
+
     }
 
     
